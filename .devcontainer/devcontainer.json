@@ -1,0 +1,48 @@
+{
+  "name": "azure-data-eng",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/node:1": { "version": "lts" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.10" },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.vscode-node-azure-pack",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "hashicorp.terraform",
+        "databricks.databricks",
+        "rangav.vscode-thunder-client"
+      ]
+    }
+  },
+  "containerEnv": {
+    "AZURE_DEFAULTS_LOCATION": "eastus",
+    "FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "postCreateCommand": [
+    "az extension add --name databricks -y || true",
+    "az bicep install || true",
+    "npm i -g azure-functions-core-tools@4 --unsafe-perm true",
+    "python -m pip install --upgrade pip",
+    "pip install -r requirements-dev.txt || true",
+    "pip install databricks-sdk==0.* databricks-cli==0.* pyspark==3.*",
+    "pip install azure-identity azure-storage-blob azure-keyvault-secrets",
+    "pip install pytest black ruff pre-commit",
+    "pre-commit install || true"
+  ],
+  "forwardPorts": [7071, 10000, 10001, 10002],
+  "remoteUser": "vscode",
+  "runServices": ["azurite", "app"]
+}
