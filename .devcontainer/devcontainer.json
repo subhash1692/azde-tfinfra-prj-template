@@ -6,7 +6,9 @@
   "features": {},
   "customizations": {
     "vscode": {
-      "extensions": []
+    "vscode": {
+      "extensions": ["OpenAI.chatgpt"]  // Codex VS Code extension
+    }
     }
   },
   "postCreateCommand": "",
