@@ -205,3 +205,19 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Databricks asset bundle common ignores
+databricks/assetBundles/**/.databricks/
+databricks/assetBundles/**/build/
+databricks/assetBundles/**/dist/
+databricks/assetBundles/**/__pycache__/
+databricks/assetBundles/**/*.egg-info/
+databricks/assetBundles/**/.venv/
+databricks/assetBundles/**/.pytest_cache/
+databricks/assetBundles/**/.vscode/
+databricks/assetBundles/**/.coverage
+databricks/assetBundles/**/*.whl
+databricks/assetBundles/**/*.tar.gz
+databricks/assetBundles/**/.bundle/
+databricks/assetBundles/**/scratch/**
+.venv*/*
