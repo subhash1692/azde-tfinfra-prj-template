@@ -3,12 +3,24 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "features": {},
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11",
+      "installTools": true
+    }
+  },
   "customizations": {
     "vscode": {
-    "vscode": {
-      "extensions": ["OpenAI.chatgpt"]  // Codex VS Code extension
-    }
+      "extensions": [
+        "databricks.databricks",
+        "andrewgross.databricks-notebook",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.vscode-python-envs",
+        "ms-python.debugpy",
+        "ms-vscode.vscode-node-azure-pack",
+        "ms-mssql.mssql"
+      ]
     }
   },
   "postCreateCommand": "",
